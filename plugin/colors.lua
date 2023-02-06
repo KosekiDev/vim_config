@@ -1,4 +1,4 @@
-require('rose-pine').setup({ disable_italics = true })
+require('rose-pine').setup({ disable_italics = true, dim_nc_background = true })
 
 vim.cmd('colorscheme rose-pine')
 
@@ -11,9 +11,6 @@ end
 
 function dark()
     vim.cmd("set background=dark")
-    vim.cmd [[
-        hi Normal guibg=#120f1d
-    ]]
 end
 
 dark()
