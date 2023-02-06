@@ -1,9 +1,6 @@
-require('rose-pine').setup({disable_italics = true})
+require('rose-pine').setup({ disable_italics = true })
 
-function ColorMyPencils(color)
-    color = color or "rose-pine"
-    vim.cmd.colorscheme(color)
-end
+vim.cmd('colorscheme rose-pine')
 
 function light()
     vim.o.background = "light"
@@ -14,6 +11,9 @@ end
 
 function dark()
     vim.cmd("set background=dark")
+    vim.cmd [[
+        hi Normal guibg=#120f1d
+    ]]
 end
 
-ColorMyPencils()
+dark()
