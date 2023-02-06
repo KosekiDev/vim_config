@@ -1,8 +1,8 @@
 vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader>pv", ":Ex<CR>")
-vim.keymap.set("n", "<leader>dd", ":25Lexplore %:p:h<CR>")
-vim.keymap.set("n", "<leader>da", ":25Lexplore<CR>")
+vim.keymap.set("n", "<leader>dd", ":15Lexplore %:p:h<CR>")
+vim.keymap.set("n", "<leader>da", ":15Lexplore<CR>")
 
 vim.keymap.set("n", "<leader>u", ":UndotreeShow<CR>")
 
