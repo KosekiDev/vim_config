@@ -6,40 +6,46 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
+    -- Theme
     use {
-        "terrortylor/nvim-comment",
-        config = function()
-            require('nvim_comment').setup()
-        end
+        "rose-pine/neovim", as = "rose-pine"
     }
-    use {
-        "akinsho/toggleterm.nvim", tag = '*'
-    }
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    -- Status bar
     use 'nvim-tree/nvim-web-devicons'
     use 'feline-nvim/feline.nvim'
     use {
         'lewis6991/gitsigns.nvim',
         tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
     }
-
-    use {
-        "rose-pine/neovim", as = "rose-pine"
-    }
+    -- For finding files
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
+    -- For easy comments
+    use {
+        "terrortylor/nvim-comment",
+        config = function()
+            require('nvim_comment').setup()
+        end
+    }
+    -- For add terminal inside neovim
+    use {
+        "akinsho/toggleterm.nvim", tag = '*'
+    }
+    -- Utilities
     use 'tpope/vim-surround'
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
-
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    -- For managing files
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
+    -- Git
     use('tpope/vim-fugitive')
-
+    -- LSP manager
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
