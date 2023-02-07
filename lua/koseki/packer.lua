@@ -7,9 +7,7 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     -- Theme
-    use {
-        "rose-pine/neovim", as = "rose-pine"
-    }
+    use 'Mofiqul/vscode.nvim'
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
     -- Status bar
     use 'nvim-tree/nvim-web-devicons'
@@ -36,6 +34,7 @@ return require('packer').startup(function(use)
     }
     -- Utilities
     use 'tpope/vim-surround'
+    use 'wellle/targets.vim'
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
