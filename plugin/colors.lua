@@ -31,6 +31,7 @@ function light()
     local c = require('vscode.colors').get_colors()
     local hl = vim.api.nvim_set_hl
     hl(0, '@constant', { fg = "#0070c1", bg = 'NONE' })
+    hl(0, 'CursorLine', { fg = 'NONE', bg = '#F8F8F8' })
 end
 
 function dark()
