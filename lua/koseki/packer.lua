@@ -39,6 +39,7 @@ return require('packer').startup(function(use)
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
+    use 'windwp/nvim-ts-autotag'
     -- For managing files
     use('theprimeagen/harpoon')
     use('mbbill/undotree')
