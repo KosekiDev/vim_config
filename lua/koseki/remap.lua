@@ -29,11 +29,4 @@ vim.keymap.set("n", "<leader>f", function()
     vim.lsp.buf.format()
 end)
 
-vim.keymap.set("n", "<C-m>", function()
-    vim.diagnostic.goto_next()
-end)
-vim.keymap.set("n", "<C-n>", function()
-    vim.diagnostic.goto_prev()
-end)
-
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
