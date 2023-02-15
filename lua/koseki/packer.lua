@@ -4,7 +4,6 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-    use 'jose-elias-alvarez/null-ls.nvim'
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     -- Theme
@@ -39,6 +38,7 @@ return require('packer').startup(function(use)
         "akinsho/toggleterm.nvim", tag = '*'
     }
     -- Utilities
+    use 'manzeloth/live-server'
     use 'gerazov/toggle-bool.nvim'
     use 'tpope/vim-surround'
     use 'wellle/targets.vim'
@@ -53,6 +53,7 @@ return require('packer').startup(function(use)
     -- Git
     use('tpope/vim-fugitive')
     -- LSP manager
+    use 'jose-elias-alvarez/null-ls.nvim'
     use {
         'VonHeikemen/lsp-zero.nvim',
         requires = {
