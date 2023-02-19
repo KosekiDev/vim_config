@@ -5,7 +5,8 @@ lsp.ensure_installed({
     'tsserver',
     'rust_analyzer',
     'html',
-    'cssls'
+    'cssls',
+    'lua_ls'
 })
 
 local cmp = require('cmp')
@@ -25,7 +26,7 @@ lsp.setup_nvim_cmp({
     mapping = cmp_mappings
 })
 
-lsp.on_attach(function(client, bufnr)
+lsp.on_attach(function(_, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -40,17 +41,23 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-lsp.setup({
-    cmd = "cssls", filetypes = { "css" }
+lsp.configure('lua_ls', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
 })
 
 vim.diagnostic.config({
     virtual_text = true,
 })
 
-local null_ls = require('null-ls')
-local null_opts = lsp.build_options('null-ls', {})
+lsp.setup({})
 
+local null_ls = require('null-ls')
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
@@ -68,7 +75,7 @@ null_ls.setup({
     end,
     sources = {
         null_ls.builtins.formatting.prettier.with({
-            extra_args = function(params)
+            extra_args = function(_)
                 if vim.fs.dirname(vim.fs.find({ '.prettierrc', '.prettierrc.js' }, { upward = true })[1]) then
                     return nil
                 end
