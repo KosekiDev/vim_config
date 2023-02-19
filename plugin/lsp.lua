@@ -67,7 +67,17 @@ null_ls.setup({
         end
     end,
     sources = {
-        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.prettier.with({
+            extra_args = function(params)
+                if vim.fs.dirname(vim.fs.find({ '.prettierrc', '.prettierrc.js' }, { upward = true })[1]) then
+                    return nil
+                end
+
+                return {
+                    "-style=", '"{IndentWidth: 4}"'
+                } -- your extra args
+            end,
+        }),
         null_ls.builtins.formatting.rustfmt,
     }
 })
