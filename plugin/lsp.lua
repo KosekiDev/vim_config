@@ -74,8 +74,8 @@ null_ls.setup({
                 end
 
                 return {
-                    "-style=", '"{IndentWidth: 4}"'
-                } -- your extra args
+                    "--tab-width=4"
+                }
             end,
         }),
         null_ls.builtins.formatting.rustfmt,
