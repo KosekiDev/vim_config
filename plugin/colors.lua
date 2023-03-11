@@ -3,8 +3,7 @@ local c = require('vscode.colors').get_colors()
 vim.wo.cursorline = true
 
 require('vscode').setup({
-    -- Enable transparent background
-    transparent = true,
+    style = 'dark',
     -- Enable italic comment
     italic_comments = true,
     -- Disable nvim-tree background color
@@ -21,23 +20,21 @@ require('vscode').setup({
     }
 })
 
-function light()
-    vim.o.background = "light"
+function Light()
+    require('vscode').load('light')
 
-    local c = require('vscode.colors').get_colors()
     local hl = vim.api.nvim_set_hl
     hl(0, '@constant', { fg = "#0070c1", bg = 'NONE' })
     hl(0, 'CursorLine', { fg = 'NONE', bg = '#F8F8F8' })
 end
 
-function dark()
-    vim.cmd("set background=dark")
+function Dark()
+    require('vscode').load('dark')
 
-    local c = require('vscode.colors').get_colors()
     local hl = vim.api.nvim_set_hl
     hl(0, '@constant', { fg = "#4fc1ff", bg = 'NONE' })
     hl(0, '@type.builtin', { fg = c.vscBlueGreen, bg = 'NONE' })
     hl(0, 'LineNr', { fg = "#858585", bg = 'NONE' })
 end
 
-dark()
+Dark()
