@@ -1,6 +1,6 @@
 require("toggleterm").setup {
     -- size can be a number or function which is passed the current terminal
-    size = 17,
+    size = 12,
     open_mapping = [[<c-\>]],
     close_on_exit = true,
 }
