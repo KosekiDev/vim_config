@@ -101,12 +101,12 @@ local c = {
             style = "bold",
         },
         left_sep = {
-            'slant_left_2',
+            'left_filled',
             { str = ' ', hl = { bg = 'oceanblue', fg = 'NONE' } },
         },
         right_sep = {
             { str = ' ', hl = { bg = 'oceanblue', fg = 'NONE' } },
-            'slant_right_2',
+            'right_filled',
             ' ',
         },
         icon = ''
