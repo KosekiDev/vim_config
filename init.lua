@@ -1,9 +1,2 @@
-require("config")
-require("core.lazy")
-require("core.lsp")
-
-require("neotest").setup({
-	adapters = {
-		require("rustaceanvim.neotest"),
-	},
-})
+require("vim._core.ui2").enable({})
+require("options")
